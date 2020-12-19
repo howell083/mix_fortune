@@ -23,12 +23,54 @@ function getDate(){
 };
 function getZodiac(){
     let sign = Math.ceil(Math.random() * 13);
-    return sign;
+    let zodiac = '';
+    switch(sign){
+        case 1:
+            zodiac = 'a Capricorn';
+            break;
+        case 2:
+            zodiac = 'an Aquarius';
+            break;
+        case 3:
+            zodiac = 'a Pisces';
+            break;
+        case 4:
+            zodiac = 'an Aries';
+            break;
+        case 5:
+            zodiac = 'a Taurus';
+            break;
+        case 6:
+            zodiac = 'a Gemini';
+            break;
+        case 7:
+            zodiac = 'a Cancer';
+            break;
+        case 8:
+            zodiac = 'a Leo';
+            break;
+        case 9:
+            zodiac = 'a Virgo';
+            break;
+        case 10:
+            zodiac = 'a Libra';
+            break;
+        case 11:
+            zodiac = 'a Scorpio';
+            break;
+        case 12:
+            zodiac = 'a Sagittarius';
+            break;
+        case 13:
+            zodiac = 'an unlucky Cat';
+            break;
+    };
+    return zodiac;
 }
 function getFortune(){
-    let advice = 'This is good advice. Promise.';
+    let advice = 'Dont rely on horoscopes. This is sage advice. Promise.';
     return advice;
 }
-console.log(getDate());
-console.log(getZodiac());
+console.log('Your lucky number could be ' + getDate());
+console.log('You may be ' + getZodiac());
 console.log(getFortune());
