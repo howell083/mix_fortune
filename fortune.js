@@ -13,7 +13,7 @@ const advice = {
 function randomNum(num){
     return Math.floor(Math.random() * num);
 };
-console.log('Welcome to the Mixed Fortunes app!');
+console.log('\n\nWelcome to the Mixed Fortunes app!');
 /*
 const rl = readline.createInterface({
     input: process.stdin,
@@ -80,23 +80,34 @@ function getZodiac(){
 };
 function getFortune(){
     let fortunes = [];
-    let hexes1 = randomNum(8);
-    let hexes2 = randomNum(8);
+    let hexes1 = randomNum(8) + 1;
+    let hexes2 = randomNum(8) + 1;
+    //console.log(hexes1 + ' ' + hexes2);
     for(let prop in advice){
         let indexOp = randomNum(advice[prop].length);
         let index = prop;
-        if(index == hexes1 || index == hexes2){
+        if(hexes1 == hexes2 && (index == hexes1 || index == hexes2)){
+            let indexOp2 = randomNum(advice[prop].length);
+            while(indexOp2 === indexOp){
+                indexOp2 = randomNum(advice[prop].length);
+                //console.log(indexOp2 === indexOp);
+            };
             fortunes.push(advice[prop][indexOp]);
-        }; 
-        //console.log(index);
+            fortunes.push(advice[prop][indexOp2]);
+            } else if(index == hexes1 || index == hexes2){
+            fortunes.push(advice[prop][indexOp]);
+        };
+
     };
+        //console.log(index);
+    
     //let advice = 'Dont rely on horoscopes. This is sage advice. Promise.';
     return fortunes.join('\n');
     
 };
 function callFortunes(){
-    console.log('Your lucky number could be ' + getLuckyNumber());
-    console.log('You may be ' + getZodiac());
-    console.log(getFortune());
+    console.log('\nYour lucky number could be ' + getLuckyNumber() + '. \n');
+    console.log('You may be ' + getZodiac() + '. \n');
+    console.log('Receive this sage advice: \n' + getFortune());
 };
 callFortunes();
