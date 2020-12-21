@@ -14,19 +14,7 @@ function randomNum(num){
     return Math.floor(Math.random() * num);
 };
 console.log('\n\nWelcome to the Mixed Fortunes app!');
-/*
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
-rl.question("What is your name ? ", name => {
-    uName = name;
-    console.log(`Howdy, ${name}!`);
-    rl.close();
-});
-
-*/
 function getLuckyNumber(){
     const dateStr = Date.now().toString();
     const lastTwo = Number.parseInt(dateStr.substr(dateStr.length - 2), 10);
@@ -110,4 +98,18 @@ function callFortunes(){
     console.log('You may be ' + getZodiac() + '. \n');
     console.log('Receive this sage advice: \n' + getFortune());
 };
-callFortunes();
+
+
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("What is your name ? ", name => {
+    uName = name;
+    console.log(`\nHowdy, ${name}!`);
+    callFortunes();
+    rl.close();
+});
+
